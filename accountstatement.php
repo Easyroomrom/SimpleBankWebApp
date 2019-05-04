@@ -26,6 +26,7 @@ $conn->query("use bank;");
   					<select required name="account_number" id="account_number">
 
               <?php
+		//Query the database for all accounts belonging to the user and display them as select box options				
               $ssn = $_COOKIE["ssn"];
               $sql = "SELECT ssn, a.account_number, type, balance from account a, has_account h where h.account_number=a.account_number and h.ssn = '$ssn';";
             	$result = $conn->query($sql);
@@ -68,6 +69,7 @@ $conn->query("use bank;");
       <tr><td colspan="4" style="border: 1px solid black;"><center><strong>Transactions</strong></center></td></tr>
       <tr><td><strong>Description</strong></td><td><strong>Date</strong></td><td><strong>Type</strong></td><td><strong>Amount</strong></td></tr>
     <?php
+      //Query the database and print out the statement in a table
       $sql = "SELECT description, amount, type, date from transactions_account where account_number='$account_number' and date >= CURDATE()-$lookback;";
       $result = $conn->query($sql);
       //echo $sql."<BR>";
@@ -84,6 +86,7 @@ $conn->query("use bank;");
     }
     ?>
     <?php
+    //This will create a csv file of the same statement to download if the user selected the check box  
     if ($get_csv) {
       $name = tempnam('/tmp', 'csv');
       $handle = fopen($name, 'w');
