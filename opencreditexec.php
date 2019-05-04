@@ -4,9 +4,10 @@ if (!isset($_COOKIE["name"])) {
 }
 else {
 
+	//YOUR CREDENTIALS HERE!!!!
 	$servername = "127.0.0.1";
-	$username = "dbuser";
-	$password = "\$Jasper123";
+	$username = "MySQL_Username";
+	$password = "MySQL_Password"; //Remember to use escape characters if necessary (ex. "My$Password" should be "My\$Password")
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password);
