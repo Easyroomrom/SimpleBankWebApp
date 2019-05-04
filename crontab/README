@@ -1,0 +1,18 @@
+These are the 2 files which should be used in a Linux environment using crontab
+
+If using Linux type (without the '$'):
+
+$ crontab -e
+
+This will open up a textfile.
+
+At the bottom of the file add:
+
+* * * * * /dir/to/file/checkAccTime.sh
+
+Where "/dir/to/file/" should be replace with the directory you saved "checkAccTime.sh"
+
+From here, crontab should run this script every minute and delete any accounts that last activity was longer than 30 days ago
+
+**Please note: Updates to the last_active attribute in the accounts table should be updated when using the account.
+This must be added to the other php files that involve the use of a checking or savings account!
