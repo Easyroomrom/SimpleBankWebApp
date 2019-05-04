@@ -1,9 +1,10 @@
 <?php include 'header.php';?>
 <?php include 'logcheck.php';?>
 <?php
+//YOUR CRENDENTIALS HERE!!!!!
 $servername = "127.0.0.1";
-$username = "dbuser";
-$password = "\$Jasper123";
+$username = "MySQL_User";
+$password = "Password Here";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
